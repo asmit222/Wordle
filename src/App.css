@@ -452,6 +452,12 @@ a {
   padding-top: 1%;
 }
 
+.keyboardLetterBox:focus,
+.keyboardLetterBoxEnter:focus,
+.keyboardLetterBoxBack:focus {
+  outline: none;
+}
+
 .keyboardLetterBoxEnter {
   background-color: #121213;
   width: 15%;
