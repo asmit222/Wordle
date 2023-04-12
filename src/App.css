@@ -1,38 +1,838 @@
-.App {
+.spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#hide {
+  display: none;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  background-color: white;
+}
+
+#appContainer {
+  height: 92%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121213;
+}
+
+#container {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.snakeButton {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 85%;
+  width: 90%;
+}
+
+.gameArea {
+  position: relative;
+  margin: auto;
+  width: 99%;
+  height: 59%;
+  margin-top: 1%;
+  border: solid 2px rgb(87, 87, 87);
+  border-radius: 5px;
+}
+
+.directionalArrowsArea {
+  position: relative;
+  margin: auto;
+  width: 99%;
+  height: 38%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.upButton {
+  margin: 0 auto;
+  display: block;
+  height: 33%;
+  width: 40%;
+  margin-bottom: 1px;
+}
+
+.downButton {
+  margin: 0 auto;
+  display: block;
+  height: 33%;
+  width: 40%;
+}
+
+.leftButton {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
+  width: 40%;
+}
+
+.rightButton {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
+  width: 40%;
+  margin-left: 4em;
+}
+
+.middleDirectionalButtons {
+  margin: 0 auto;
+  display: block;
+  height: 33%;
+  width: 100%;
+  display: flex;
+  margin-bottom: 1px;
+}
+
+.scoreSpan {
+  font-size: large;
+  font-weight: 600;
+  margin-left: 2em;
+}
+
+.navbar {
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+  /* padding-top: 1em; */
+  height: 8%;
+  background-color: #121213 !important;
+  z-index: 2;
+  box-shadow: none;
+  border-bottom: 1px rgba(65, 65, 65, 0.747) solid;
+}
+
+.navbar-collapse {
+  position: relative;
+  border-bottom: solid 0.5px rgb(196, 196, 196);
+  background-color: #f8f9fa;
+  margin-top: 0.5em;
+}
+
+.navbar-nav.mr-auto {
+  margin-top: 0.5em;
+  margin-top: 0;
+  background-color: #f8f9fa;
+}
+
+.deadModalBody,
+.deadModalFooter,
+.deadModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snakeStartButtonArea {
+  display: flex;
+  margin: auto;
+  width: 99%;
+  height: 38%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  align-items: center;
+  justify-content: center;
+}
+
+.snakeGameStartButtons {
+  margin: 0 auto;
+  display: block;
+  height: 33%;
+  width: 40%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#mypopover {
+  margin: 0 auto;
+  display: block;
+  height: 33%;
+  width: 40%;
+}
+
+.highscoresContainer,
+.settingsContainer,
+.homeContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsContainer {
+  flex-direction: row;
+}
+
+.logoutButton {
+  height: 10%;
+  width: 90%;
+}
+
+.gamesDropDownMenu {
+  background-color: #f8f9fa;
+}
+
+#navbarDropdown {
+  color: black;
+}
+
+.highscoresTable {
+  position: absolute;
+  top: 0;
+  margin-top: 2%;
+  min-height: 30%;
+  max-height: 98%;
+  width: 98%;
+}
+
+.highscoresTable tr th,
+.highscoresTable tbody tr td {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.homeBackground {
+  /* background-image: url('./assets/game-over-background.jpg'); */
+  background-color: black;
+  /* background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-size: contain; */
+
+  width: 98%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wordleContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #121213;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wordleGameArea {
+  background-color: #121213;
+  position: relative;
+  margin: auto;
+  width: 92%;
+  height: 69%;
+  margin-top: 1%;
+  /* border: solid 2px rgb(87, 87, 87); */
+  padding: 2px;
+  border-radius: 5px;
+  margin-bottom: -6%;
+
+  text-align: justify;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+}
+
+.wordleKeyboardArea {
+  background-color: #121213;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 33%;
+  /* border: solid 2px rgb(87, 87, 87); */
+  padding: 2px;
+  border-radius: 5px;
+  animation: fadeIn ease 1s;
+}
+
+.box0,
+.box1,
+.box2,
+.box3,
+.box4,
+.box5 {
+  background-color: #121213;
+  width: 20%;
+  height: 100%;
+  vertical-align: top;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 3px;
+}
+
+.wordleLetterInBox {
+  border: solid #38383a 2px;
+
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 8vw;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.ani1 {
+  animation-delay: 460ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani2 {
+  animation-delay: 460ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani3 {
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani4 {
+  animation-delay: 500ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani5 {
+  animation-delay: 500ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani6 {
+  animation-delay: 300ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani7 {
+  animation-delay: 400ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani8 {
+  animation-delay: 250ms;
+  animation-name: popout;
+  animation-duration: 1s;
+}
+.ani9 {
+  animation-delay: 250ms;
+  animation-name: popout;
+  animation-duration: 1s;
 }
 
-@keyframes App-logo-spin {
+@keyframes popout {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+.popAnimation {
+  animation-name: popout;
+  animation-duration: 100ms;
+}
+
+.row0,
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+  display: table;
+  height: 100%;
+  width: 95%;
+}
+
+.rowContainer0,
+.rowContainer1,
+.rowContainer2,
+.rowContainer3,
+.rowContainer4,
+.rowContainer5 {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowContainer0 {
+  margin-top: 3%;
+}
+
+.keyboardRowContainer {
+  width: 100%;
+  height: 33%;
+  background-color: #121213;
+  border: solid #121213 4px;
+}
+
+.keyboardRow1,
+.keyboardRow3 {
+  display: table;
+  height: 100%;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+.keyboardRow2 {
+  display: table;
+  height: 100%;
+  width: 90%;
+  margin-left: 10%;
+  background-color: #121213;
+}
+
+.keyboardLetterBox {
+  background-color: #121213;
+  width: 10%;
+  height: 100%;
+  vertical-align: top;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 2px;
+  border: solid #121213 2px;
+  text-align: center;
+  color: white;
+  background-color: #787c7e;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+}
+
+.keyboardLetterBoxEnter {
+  background-color: #121213;
+  width: 15%;
+  height: 100%;
+  vertical-align: top;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 2px;
+  border: solid #121213 2px;
+  text-align: center;
+  color: white;
+  background-color: #787c7e;
+  border-radius: 5px;
+  font-size: x-small;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+}
+
+.keyboardLetterBoxBack {
+  background-color: #121213;
+  width: 15%;
+  height: 100%;
+  vertical-align: top;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 2px;
+  border: solid #121213 2px;
+  text-align: center;
+  color: white;
+  background-color: #787c7e;
+  border-radius: 5px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding-top: 1%;
+
+  background-image: url("./assets/backspace-icon.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-size: 70%;
+}
+
+.grayBackground {
+  background-color: #38383a;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.orangeBackground {
+  background-color: #c9b459;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.greenBackground {
+  background-color: #6aaa64;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.outandinAnimation {
+  background-color: red;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.borderGlow {
+  border: solid #797979 2px;
+}
+
+.modal-body-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.my-modal .modal-content {
+  /* background-color: rgb(0, 0, 0);
+  color: white; */
+}
+
+.my-modal .modal-backdrop {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.wordlePlayAgainButtonsArea {
+  background-color: #121213;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 33%;
+  /* border: solid 2px rgb(87, 87, 87); */
+  padding: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statsButton {
+  margin-left: 5%;
+}
+
+.fadeIn {
+  animation: fadeIn ease 1s;
+}
+
+.practiceCodeContainer {
+  /* display: inline-block; */
+  background-color: white;
+  width: 60%;
+  height: 100%;
+  float: right;
+  z-index: -1;
+  /* border-left: solid 1px rgba(128, 128, 128, 0.275); */
+}
+
+.codeEditorContainer {
+  display: block;
+  width: 100%;
+  height: 85%;
+  z-index: -1;
+}
+
+.buttonAndInputArea {
+  /* position: relative; */
+  /* margin: auto; */
+  width: 100%;
+  height: 15%;
+  padding: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border-left: solid 1px rgba(128, 128, 128, 0.275);
+}
+
+.codeInputForm {
+  width: 20%;
+  min-width: 100px;
+  max-width: 200px;
+  margin: 2%;
+}
+
+.stackTraceForm {
+  width: 50%;
+  /* display: flex; */
+  /* min-width: 100px; */
+  /* max-width: 200px; */
+  /* margin: 2%; */
+  text-align: center;
+  justify-self: center;
+  /* border: solid red 1px; */
+  outline: none;
+  animation: fadeIn ease 0.75s;
+  font-weight: 500;
+  position: relative;
+  margin-left: 5%;
+  height: 100%;
+  overflow-wrap: break-word;
+  justify-items: center;
+}
+
+.stacktraceFormControl {
+  height: 100%;
+  /* margin-top: 1%; */
+  overflow-wrap: break-word;
+  color: rgb(194, 0, 0) !important;
+  font-weight: 450 !important;
+  background-image: linear-gradient(
+    rgba(255, 181, 187, 0.276),
+    rgba(255, 245, 247, 0.201)
+  ) !important;
+}
+
+.allTestsPassed {
+  color: green;
+  font-weight: 500;
+  font-size: large;
+  animation: fadeIn ease 1s;
+  margin-left: 5%;
+}
+
+.runtimeMessage {
+  font-size: large;
+  margin: 2%;
+  animation: fadeIn ease 1s;
+}
+
+.problemContainer {
+  /* display: flex; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  /* top: 0; */
+  bottom: 0;
+  z-index: 3;
+  /* align-items: center;
+  justify-content: center; */
+  background-color: white;
+}
+
+.settingsBar {
+  width: 40%;
+  position: fixed;
+  left: 0;
+  height: 5vh;
+  top: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  /* border-bottom: solid 1px rgba(27, 27, 27, 0.189); */
+  border-bottom: solid 1px rgba(27, 27, 27, 0.284);
+  z-index: 1;
+}
+
+.problemDescription {
+  background-color: white;
+  /* width: 40%; */
+  /* height: 98%; */
+  height: 95vh;
+  position: fixed;
+  bottom: 0;
+  overflow-y: scroll;
+  padding: 1%;
+  /* resize: horizontal; */
+  animation: fadeIn ease 0.6s;
+  display: inline-block;
+  overflow-wrap: break-word;
+  width: 40%;
+  margin: 0;
+
+  float: left;
+  z-index: -1;
+}
+
+.problemTitle {
+  margin-left: 2%;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.problemDescription2 {
+  margin-top: 5%;
+}
+
+.problemExample {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.inputAndOutput {
+  padding: 3%;
+  background-color: hsl(210, 17%, 98%);
+  border-radius: 1px;
+}
+
+.inputOutputText {
+  font-size: large;
+  font-weight: 500;
+}
+
+.inputOutputValue {
+  margin-left: 2%;
+}
+
+.monaco-editor,
+.monaco-mouse-cursor,
+.overflow-guard,
+.monaco-scrollable-element,
+.react-monaco-editor-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.reset-code-button {
+  position: absolute;
+  right: 2%;
+}
+
+.runTestsButton {
+  position: relative;
+  left: 2%;
+  margin-left: 0;
+}
+
+.language-selector-dropdown {
+  margin-right: 1%;
+}
+
+.problems-button {
+  position: fixed;
+  left: 0.5%;
+  /* height: 4%; */
+}
+
+.resetCodeModalHeader {
+  border-bottom: none !important;
+}
+
+.resetCodeModalFooter {
+  border-top: none !important;
+}
+
+.markCompleteButton {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+
+.titleAndMarkComplete {
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fa-circle-check {
+  color: rgb(0, 167, 0);
+}
+
+.problemPageCircleCheck {
+  margin-left: 2%;
+  opacity: 0.2;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+}
+.problemPageCircleCheckCompleted {
+  margin-left: 2%;
+}
+.problemPageCircleCheck:hover,
+.problemPageCircleCheckCompleted:hover {
+  cursor: pointer;
+}
+
+.homeButtonContainer {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.arrowIconProblems {
+  margin-right: 2px;
+}
+
+.viewOnLeetcodeButton {
+  margin-top: 5%;
+}
+
+.Notes {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.inputLine {
+  margin: 0;
+  /* padding: 0; */
+}
+
+.descriptionLine {
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
 }
