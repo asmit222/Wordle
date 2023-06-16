@@ -11,6 +11,7 @@ import {
 
 import myData from "./utils/dictionary2.json";
 import dictionary2 from "./utils/dictionary.json";
+import webDic from "./utils/websterDictionary.json";
 
 const initialState = {
   wordleBoard: [
@@ -45,7 +46,7 @@ const initialState = {
 const Wordle: React.FC = () => {
   const [state, setState] = React.useState(initialState);
   const [lost, setLost] = React.useState(true);
-  const [websterDictionary, setWebsterDictionary] = React.useState({});
+  const [websterDictionary, setWebsterDictionary] = React.useState(webDic);
 
   useEffect(() => {
     resetState();
@@ -313,7 +314,7 @@ const Wordle: React.FC = () => {
       return (
         <div className={`box${row + 1} ${state.boxes[Number(`${i}${row}`)]}`}>
           <p
-            className={`wordleLetterInBox ${getRandomBoxAnimation()} ${
+            className={`wordleLetterInBox ani${row + 1} ${
               state.backgroundColors[Number(`${i}${row}`)]
             }`}
           >
@@ -390,7 +391,10 @@ const Wordle: React.FC = () => {
           <Modal.Body>
             {`The word was `} <b>{`${state.wordToGuess.join("")}`}</b>
             {` - ${
-              websterDictionary[state.wordToGuess.join("").toLowerCase()]
+              websterDictionary[state.wordToGuess.join("").toLowerCase()] !==
+              undefined
+                ? websterDictionary[state.wordToGuess.join("").toLowerCase()]
+                : dictionary2[state.wordToGuess.join("").toLowerCase()]
             }`}
           </Modal.Body>
         </div>
