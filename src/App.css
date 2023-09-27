@@ -248,6 +248,15 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #121213;
+  max-width: 400px;
+  max-height: 700px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  background-color: #121213;
+  align-items: center;
 }
 
 .wordleGameArea {
